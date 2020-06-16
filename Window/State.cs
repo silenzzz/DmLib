@@ -9,11 +9,16 @@ namespace DmLib.Window
         [DllImport("user32.dll")]
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         private const uint SWP_NOSIZE = 0x0001;
         private const uint SWP_NOMOVE = 0x0002;
         private const uint SWP_SHOWWINDOW = 0x0040;
+        private const int GWL_EXSTYLE = (-20);
+        private const uint WS_EX_TOPMOST = 0x0008;
 
         /// <summary>
         /// Top - window top most
@@ -51,6 +56,23 @@ namespace DmLib.Window
             {
                 throw new ProcessNotExistsException();
             }
+        }
+
+        /// <summary>
+        /// Determines whether [is top most] [the specified p].
+        /// </summary>
+        /// <param name="p">The process.</param>
+        /// <returns>
+        ///   <c>true</c> if [is top most] [the specified p]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsTopMost(Process p)
+        {
+            int dwExStyle = GetWindowLong(p.MainWindowHandle, GWL_EXSTYLE);
+            if ((dwExStyle & WS_EX_TOPMOST) != 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
