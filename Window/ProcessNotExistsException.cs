@@ -2,7 +2,7 @@
 
 namespace DmLib.Window
 {
-    class ProcessNotExistsException : Exception
+    public class ProcessNotExistsException : Exception
     {
         public ProcessNotExistsException()
         {

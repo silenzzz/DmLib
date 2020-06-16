@@ -37,20 +37,19 @@ namespace DmLib.Window
         /// <param name="state"> Window state </param>
         public static void SetWindowState(Process p, WINDOW_STATE state)
         {
-            try
+            bool res;
+            if (state == WINDOW_STATE.TOP)
             {
-                if (state == WINDOW_STATE.TOP)
-                {
-                    SetWindowPos(p.MainWindowHandle, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
-                }
-                else
-                {
-                    SetWindowPos(p.MainWindowHandle, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
-                }
+                res = SetWindowPos(p.MainWindowHandle, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
             }
-            catch (ArgumentException)
+            else
             {
-                throw new ProcessNotExistsException("Process doesnt exists");
+                res = SetWindowPos(p.MainWindowHandle, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
+            }
+
+            if (res == false)
+            {
+                throw new ProcessNotExistsException();
             }
         }
     }
