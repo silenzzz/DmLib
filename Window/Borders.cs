@@ -13,6 +13,37 @@ namespace DmLib.Window
         [DllImport("user32.dll")]
         public static extern long GetWindowRect(IntPtr hWnd, ref Rectangle lpRect);
 
+        /// <summary>
+        /// Edits the window.
+        /// </summary>
+        /// <param name="p">The p.</param>
+        /// <param name="X">The x.</param>
+        /// <param name="Y">The y.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="width">The width.</param>
+        /// <returns></returns>
+        public static bool EditWindow(Process p, int X, int Y, int height, int width)
+        {
+            return MoveWindow(p.MainWindowHandle, X, Y,
+               height + Y, width + X, true);
+        }
+
+        /// <summary>
+        /// Edits the window.
+        /// </summary>
+        /// <param name="p">The p.</param>
+        /// <param name="X">The x.</param>
+        /// <param name="Y">The y.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="repaint">if set to <c>true</c> [repaint].</param>
+        /// <returns></returns>
+        public static bool EditWindow(Process p, int X, int Y, int height, int width, bool repaint)
+        {
+            return MoveWindow(p.MainWindowHandle, X, Y,
+               height + Y, width + X, repaint);
+        }
+
         /// <summary>Sets the size of the window.</summary>
         /// <param name="p">The p.</param>
         /// <param name="height">The height.</param>
