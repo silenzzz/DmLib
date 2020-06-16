@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DmLib.Winforms
+namespace DmLib.Window
 {
     class ProcessNotExistsException : Exception
     {

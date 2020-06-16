@@ -25,7 +25,7 @@ namespace DmLib.Window
         public static bool EditWindow(Process p, int X, int Y, int height, int width)
         {
             return MoveWindow(p.MainWindowHandle, X, Y,
-               height + Y, width + X, true);
+               height, width, true);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace DmLib.Window
         public static bool EditWindow(Process p, int X, int Y, int height, int width, bool repaint)
         {
             return MoveWindow(p.MainWindowHandle, X, Y,
-               height + Y, width + X, repaint);
+               height, width, repaint);
         }
 
         /// <summary>Sets the size of the window.</summary>
@@ -53,7 +53,7 @@ namespace DmLib.Window
         {
             Rectangle current = GetWindowRectangle(p);
             return MoveWindow(p.MainWindowHandle, current.X, current.Y,
-               height + current.Y, width + current.X, true);
+               height, width, true);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DmLib.Window
         {
             Rectangle current = GetWindowRectangle(p);
             return MoveWindow(p.MainWindowHandle, current.X, current.Y,
-               height + current.Y, width + current.X, repaint);
+               height, width, repaint);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DmLib.Window
         public static bool MoveWindow(Process p, int X, int Y)
         {
             Rectangle current = GetWindowRectangle(p);
-            return MoveWindow(p.MainWindowHandle, X, Y, current.Height + Y, current.Width + X, true);
+            return MoveWindow(p.MainWindowHandle, X, Y, current.Height - Y, current.Width - X, true);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace DmLib.Window
         public static bool MoveWindow(Process p, int X, int Y, bool repaint)
         {
             Rectangle current = GetWindowRectangle(p);
-            return MoveWindow(p.MainWindowHandle, X, Y, current.Height + Y, current.Width + X, repaint);
+            return MoveWindow(p.MainWindowHandle, X, Y, current.Height - Y, current.Width - X, repaint);
         }
 
         /// <summary>

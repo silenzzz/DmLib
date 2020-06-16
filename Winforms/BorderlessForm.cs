@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace DmLib.Winforms
+namespace DmLib.Window
 {
     public static class BorderlessForm
     {
