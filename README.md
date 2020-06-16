@@ -1,4 +1,5 @@
 # DmLib
+## [Nuget](https://www.nuget.org/packages/DmLib/1.1.0)
 Dll with stuff for win developing
 ## With this beautiful dll you can:
 * Work with autorun
