@@ -16,7 +16,7 @@ namespace DmLib.Window
         /// <summary>
         /// Edits the window.
         /// </summary>
-        /// <param name="p">The p.</param>
+        /// <param name="p">The process.</param>
         /// <param name="X">The x.</param>
         /// <param name="Y">The y.</param>
         /// <param name="height">The height.</param>
@@ -31,7 +31,7 @@ namespace DmLib.Window
         /// <summary>
         /// Edits the window.
         /// </summary>
-        /// <param name="p">The p.</param>
+        /// <param name="p">The proces.</param>
         /// <param name="X">The x.</param>
         /// <param name="Y">The y.</param>
         /// <param name="height">The height.</param>
@@ -59,7 +59,7 @@ namespace DmLib.Window
         /// <summary>
         /// Sets the size of the window.
         /// </summary>
-        /// <param name="p">The p.</param>
+        /// <param name="p">The process.</param>
         /// <param name="height">The height.</param>
         /// <param name="width">The width.</param>
         /// <param name="repaint">if set to <c>true</c> [repaint].</param>
@@ -74,7 +74,7 @@ namespace DmLib.Window
         /// <summary>
         /// Moves the window.
         /// </summary>
-        /// <param name="p">The p.</param>
+        /// <param name="p">The process.</param>
         /// <param name="X">The x.</param>
         /// <param name="Y">The y.</param>
         /// <returns></returns>
@@ -87,7 +87,7 @@ namespace DmLib.Window
         /// <summary>
         /// Moves the window.
         /// </summary>
-        /// <param name="p">The p.</param>
+        /// <param name="p">The process.</param>
         /// <param name="X">The x.</param>
         /// <param name="Y">The y.</param>
         /// <param name="repaint">if set to <c>true</c> [repaint].</param>
