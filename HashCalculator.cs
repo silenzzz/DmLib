@@ -5,6 +5,11 @@ namespace DmLib
 {
     public static class HashCalculator
     {
+        /// <summary>
+        /// Gets the string MD5 hash sum.
+        /// </summary>
+        /// <param name="s">Input string.</param>
+        /// <returns> Hash sum </returns>
         public static string GetStringMd5Hash(string s)
         {
             string hash;
