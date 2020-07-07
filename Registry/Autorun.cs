@@ -5,7 +5,11 @@ namespace DmLib.Autorun
 {
     public static class Autorun
     {
-        public enum TARGET { MACHINE, USER }
+        /// <summary>
+        /// USER - current user
+        /// MACHINE - entire PC (requires administrator privileges)
+        /// </summary>
+        public enum TARGET { USER, MACHINE }
 
         private const string FOLDER = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
 
