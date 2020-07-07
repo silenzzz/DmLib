@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DmLib
 {
-    public static class HashCalculator
+    public static class HashSumCalculator
     {
         /// <summary>
         /// Gets the string MD5 hash sum.
