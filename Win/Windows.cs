@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+using System.Security.Principal;
+
 namespace DmLib.Win
 {
     public static class Windows
@@ -18,6 +20,15 @@ namespace DmLib.Win
         {
             IsWow64Process(Process.GetCurrentProcess().Handle, out bool res);
             return res;
+        }
+
+        /// <summary>
+        /// Get previleges for current user
+        /// </summary>
+        /// <returns> UserRole </returns>
+        public static WindowsBuiltInRole GetCurrentUserPermisson()
+        {
+            return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? WindowsBuiltInRole.Administrator : WindowsBuiltInRole.User;
         }
     }
 }
