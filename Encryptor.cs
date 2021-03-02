@@ -7,7 +7,16 @@ namespace DmLib
 {
     public static class Encryptor
     {
-        private static readonly byte[] DEFAULT_SALT = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+        private static byte[] defaultSalt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+        /// <summary>
+        /// Change default encryption salt bytes
+        /// </summary>
+        /// <param name="salt"></param>
+        public static void ChangeSalt(byte[] salt)
+        {
+            defaultSalt = salt;
+        }
 
         /// <summary>
         /// Encrypts the specified string.
@@ -55,7 +64,7 @@ namespace DmLib
             {
                 using (RijndaelManaged AES = new RijndaelManaged())
                 {
-                    var key = new Rfc2898DeriveBytes(passwordBytes, DEFAULT_SALT, 1000);
+                    var key = new Rfc2898DeriveBytes(passwordBytes, defaultSalt, 1000);
 
                     AES.KeySize = 256;
                     AES.BlockSize = 128;
@@ -84,7 +93,7 @@ namespace DmLib
             {
                 using (RijndaelManaged AES = new RijndaelManaged())
                 {
-                    var key = new Rfc2898DeriveBytes(passwordBytes, DEFAULT_SALT, 1000);
+                    var key = new Rfc2898DeriveBytes(passwordBytes, defaultSalt, 1000);
 
                     AES.KeySize = 256;
                     AES.BlockSize = 128;
